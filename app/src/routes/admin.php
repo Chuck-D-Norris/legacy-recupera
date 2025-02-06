@@ -4,6 +4,7 @@ use App\Controllers\Admin\AccountController;
 use App\Controllers\Admin\ContractController;
 use App\Controllers\Admin\DashboardController;
 use App\Controllers\Admin\ElementController;
+use App\Controllers\Admin\PokemonController;
 use App\Controllers\Admin\ElementTypeController;
 use App\Controllers\Admin\InventoryController;
 use App\Controllers\Admin\ResourceController;
@@ -15,6 +16,7 @@ use App\Controllers\Admin\UserController;
 use App\Controllers\Admin\WorkOrderController;
 use App\Controllers\Admin\WorkReportController;
 use App\Middlewares\AdminMiddleware;
+
 
 return [
     'GET' => [
@@ -34,6 +36,35 @@ return [
             'method' => 'index',
             'middlewares' => [AdminMiddleware::class],
         ],
+        
+        // === Pokemons GET Routes
+        '/admin/pokemon' => [
+            'controller' => PokemonController::class,
+            'method' => 'index',
+            'middlewares' => [AdminMiddleware::class],
+        ],
+        '/admin/pokemon/create' => [
+            'controller' => PokemonController::class,
+            'method' => 'create',
+            'middlewares' => [AdminMiddleware::class],
+        ],
+        '/admin/pokemon/:id/edit' => [
+            'controller' => PokemonController::class,
+            'method' => 'edit',
+            'middlewares' => [AdminMiddleware::class],
+        ],
+        '/admin/pokemon/:id/delete' => [
+            'controller' => PokemonController::class,
+            'method' => 'destroy',
+            'middlewares' => [AdminMiddleware::class],
+        ],   
+        '/admin/pokemon/:id/convert' => [
+            'controller' => PokemonController::class,
+            'method' => 'convert',
+            'middlewares' => [AdminMiddleware::class],
+        ],   
+
+
         // === Users GET Routes
         '/admin/users' => [
             'controller' => UserController::class,
@@ -350,5 +381,23 @@ return [
             'method' => 'update',
             'middlewares' => [AdminMiddleware::class],
         ],
+
+        // === Pokemons POST Routes
+        '/admin/pokemon/store' => [
+            'controller' => PokemonController::class,
+            'method' => 'store',
+            'middlewares' => [AdminMiddleware::class],
+        ],
+        '/admin/pokemon/:id/update' => [
+            'controller' => PokemonController::class,
+            'method' => 'update',
+            'middlewares' => [AdminMiddleware::class],
+        ],
+        '/admin/pokemon/:id/points' => [
+            'controller' => PokemonController::class,
+            'method' => 'points',
+            'middlewares' => [AdminMiddleware::class],
+        ],
+
     ],
 ];

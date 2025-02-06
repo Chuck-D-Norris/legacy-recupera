@@ -1,3 +1,12 @@
+create table pokemon (
+    id int auto_increment primary key,
+    name varchar(255) not null,
+    type varchar(255) not null,
+    points int,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp,
+    deleted_at timestamp
+);
 --* Photos
 create table photos (
     id int auto_increment primary key,

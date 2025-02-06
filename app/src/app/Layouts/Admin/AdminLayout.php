@@ -28,7 +28,7 @@ $currentContract = Session::get('current_contract');
 </head>
 
 <body class="bg-gray-50">
-
+    
     <!-- Navigation Bar -->
     <header class="border-b bg-white shadow-md">
         <nav class="flex items-center justify-between px-4 py-4 max-w-7xl mx-auto">
@@ -36,6 +36,7 @@ $currentContract = Session::get('current_contract');
             <!-- Logo (hidden on mobile) -->
             <a href="/" class="hidden sm:block">
                 <img class="w-36 md:w-48" src="/assets/images/logo.png" alt="Logo">
+                
             </a>
 
             <!-- Mobile Menu Toggle Button -->
@@ -143,10 +144,17 @@ $currentContract = Session::get('current_contract');
                 <i class="fas fa-users block"></i>
                 Usuarios
             </a>
-            <a href="/admin/stats"
+           
+            <a href="/admin/pokemon"
                 class="text-sm text-gray-700 hover:text-gray-600 active:text-gray-700 <?= strpos($currentPath, '/admin/stats') !== false ? 'font-semibold' : ''; ?>">
                 <i class="fas fa-chart-bar block"></i>
-                Estadísticas
+                Pokemons
+            </a>
+
+            <a href="/admin/landigpage"
+                class="text-sm text-gray-700 hover:text-gray-600 active:text-gray-700 <?= strpos($currentPath, '/admin/stats') !== false ? 'font-semibold' : ''; ?>">
+                <i class="fas fa-chart-bar block"></i>
+                Ladning
             </a>
         </div>
     </div>

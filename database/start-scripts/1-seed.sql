@@ -1,3 +1,11 @@
+INSERT Into pokemon (name, type) VALUES
+('Bulbasaur', 'Grass'),
+('Charmander', 'Fire'),
+('Squirtle', 'Water');
+
+
+
+
 --* Users
 INSERT INTO users (company, name, surname, dni, password, email, role) VALUES
 ('Urban Tree 5.0', 'Admin', 'Demo', '12345678A', '$2y$10$BvILqM2m0pJlHNzyugbIu.RqhLIKwKetsRCo3FQbpcOiVx2nHBc9m', 'admin@urbantree.com', 2), -- Password: demopass
