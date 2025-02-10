@@ -48,6 +48,11 @@ return [
             'method' => 'create',
             'middlewares' => [AdminMiddleware::class],
         ],
+        '/admin/pokemon/convert' => [
+            'controller' => PokemonController::class,
+            'method' => 'convert',
+            'middlewares' => [AdminMiddleware::class],
+        ], 
         '/admin/pokemon/:id/edit' => [
             'controller' => PokemonController::class,
             'method' => 'edit',
@@ -58,11 +63,7 @@ return [
             'method' => 'destroy',
             'middlewares' => [AdminMiddleware::class],
         ],   
-        '/admin/pokemon/:id/convert' => [
-            'controller' => PokemonController::class,
-            'method' => 'convert',
-            'middlewares' => [AdminMiddleware::class],
-        ],   
+        
 
 
         // === Users GET Routes
@@ -398,6 +399,13 @@ return [
             'method' => 'points',
             'middlewares' => [AdminMiddleware::class],
         ],
+        '/admin/pokemon/intercanvis' => [
+            'controller' => PokemonController::class,
+            'method' => 'intercanvis',
+            'middlewares' => [AdminMiddleware::class],
+        ],
+        
+        
 
     ],
 ];

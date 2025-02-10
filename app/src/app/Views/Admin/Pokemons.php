@@ -5,7 +5,6 @@
     <a href="/admin/pokemon/create" class="px-4 py-2 bg-gray-700 text-white shadow-sm hover:bg-gray-500 transition-all duration-200 rounded">
         <i class="fas fa-plus mr-2"></i> Nou Pokémon
     </a>
-   
 </div>
 
 <!-- Table -->
@@ -40,7 +39,7 @@
                             </form>
                             <span class="mx-2"><?= htmlspecialchars($pokemon->points ?? 0); ?></span>
                             <form action="/admin/pokemon/<?= htmlspecialchars($pokemon->id); ?>/points" method="post" class="inline">
-                                <input type="hidden" name="action" value="de crement">
+                                <input type="hidden" name="action" value="decrement">
                                 <button type="submit" class="px-2 py-1 bg-red-500 text-white rounded ml-2">-</button>
                             </form>
                         </td>

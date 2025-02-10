@@ -124,29 +124,36 @@ class PokemonController
         exit;
     }
 
-
-    public function convert($id, $postData)
+    public function convert($queryParams)
     {
-        $pokemon = Pokemon::find($id);
+        $pokemons = Pokemon::findAll();
+        View::render([
+            'view' => 'Admin/Pokemon/Convert',
+            'title' => 'Convertir Puntos',
+            'layout' => 'Admin/AdminLayout',
+            'data' => ['pokemons' => $pokemons],
+        ]);
+    }
 
-        if ($pokemon) {
-            $pokemon->points = 0;
-            $pokemon->save();
-            Session::set('success', 'Puntos convertidos correctamente');
+    public function intercanvis($postData)
+    {
+        $pokemonFrom = Pokemon::find($postData['pokemon']);
+        $pokemonTo = Pokemon::find($postData['pokemon2']);
+        $points = (int) $postData['points'];
+
+        if ($pokemonFrom && $pokemonTo && $points > 0 && $pokemonFrom->points >= $points) {
+            $pokemonFrom->points -= $points;
+            $pokemonTo->points += $points;
+
+            $pokemonFrom->save();
+            $pokemonTo->save();
+
+            Session::set('success', 'Puntos transferidos correctamente');
         } else {
-            Session::set('error', 'Pokémon no encontrado');
+            Session::set('error', 'Error al transferir los puntos');
         }
 
         header('Location: /admin/pokemon');
         exit;
-
-    
-
-
-    
     }
-
-
-
-
 }
