@@ -141,10 +141,10 @@ class PokemonController
         $pokemonTo = Pokemon::find($postData['pokemon2']);
         $points = (int) $postData['points'];
 
-        if ($pokemonFrom && $pokemonTo && $points > 0 && $pokemonFrom->points >= $points) {
+        if ($pokemonFrom && $pokemonTo && $pokemonFrom->id !== $pokemonTo->id && $points > 0 && $pokemonFrom->points >= $points) {
             $pokemonFrom->points -= $points;
             $pokemonTo->points += $points;
-
+            
             $pokemonFrom->save();
             $pokemonTo->save();
 
